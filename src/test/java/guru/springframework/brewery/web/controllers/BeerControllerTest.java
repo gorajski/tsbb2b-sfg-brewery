@@ -51,11 +51,6 @@ class BeerControllerTest {
 
     BeerDto validBeer;
 
-    @AfterEach
-    void tearDown() {
-        reset(beerService);
-    }
-
     @BeforeEach
     void setUp() {
         validBeer = BeerDto.builder().id(UUID.randomUUID())
@@ -68,6 +63,11 @@ class BeerControllerTest {
                 .createdDate(OffsetDateTime.now())
                 .lastModifiedDate(OffsetDateTime.now())
                 .build();
+    }
+
+    @AfterEach
+    void tearDown() {
+        reset(beerService);
     }
 
     @Test
